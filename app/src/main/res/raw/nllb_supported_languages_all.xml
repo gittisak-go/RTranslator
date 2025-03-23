@@ -296,4 +296,8 @@
         <code>bo</code>
         <code_NLLB>bod_Tibt</code_NLLB>
     </language>
+    <language>
+        <code>fa</code>
+        <code_NLLB>pes_Arab</code_NLLB>
+    </language>
 </languages>
