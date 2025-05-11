@@ -300,4 +300,12 @@
         <code>fa</code>
         <code_NLLB>pes_Arab</code_NLLB>
     </language>
+    <language>
+        <code>km</code>
+        <code_NLLB>khm_Khmr</code_NLLB>
+    </language>
+    <!--<language>
+        <code>id</code>
+        <code_NLLB>ind_Latn</code_NLLB>
+    </language>-->
 </languages>
