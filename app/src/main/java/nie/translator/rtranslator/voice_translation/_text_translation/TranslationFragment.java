@@ -58,7 +58,8 @@ import nie.translator.rtranslator.voice_translation.VoiceTranslationActivity;
 import nie.translator.rtranslator.voice_translation.neural_networks.translation.Translator;
 
 public class TranslationFragment extends Fragment {
-    public static final int BEAM_SIZE = 1;
+    public static final int DEFAULT_BEAM_SIZE = 1;
+    public static final int MAX_BEAM_SIZE = 6;
     private VoiceTranslationActivity activity;
     private Global global;
     private Translator.TranslateListener translateListener;
@@ -254,7 +255,7 @@ public class TranslationFragment extends Fragment {
                             //we deactivate translate button
                             deactivateTranslationButton();
                             //we start the translation
-                            global.getTranslator().translate(finalText, firstLanguage, secondLanguage, BEAM_SIZE, true);
+                            global.getTranslator().translate(finalText, firstLanguage, secondLanguage, global.getBeamSize(), true);
                         }
 
                         @Override

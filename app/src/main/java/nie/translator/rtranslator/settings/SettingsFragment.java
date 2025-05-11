@@ -184,6 +184,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         });
 
         // change microphone sensibility initialization
+        SeekBarPreference beamSizePreference = (SeekBarPreference) findPreference("BeamSizeSetting");
+        beamSizePreference.initialize(activity, SeekBarPreference.BEAM_SIZE_MODE);
+
+        // change microphone sensibility initialization
         SeekBarPreference speechTimeoutPreference = (SeekBarPreference) findPreference("SpeechTimeoutSetting");
         speechTimeoutPreference.initialize(activity, SeekBarPreference.SPEECH_TIMEOUT_MODE);
 

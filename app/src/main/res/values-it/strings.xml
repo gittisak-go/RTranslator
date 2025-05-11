@@ -142,6 +142,7 @@
     <string name="preference_title_tts">Sintetizzatore vocale</string>
     <string name="preference_title_speech_timeout">Timeout fine voce</string>
     <string name="preference_title_prev_voice_duration">Durata anticipo voce</string>
+    <string name="preference_title_beam_size">Beam Search (beta)</string>
 
     <string name="preference_description_mic_sensitivity">Seleziona il livello di volume che serve per avviare e mantenere il riconoscimento vocale</string>
     <string name="preference_description_languages_quality">Permette di supportare anche le lingue che hanno una bassa qualità di traduzione o del riconoscimento vocale</string>
@@ -149,6 +150,7 @@
     <string name="preference_description_tts">Impostazioni di sistema del tts, un eventuale cambio del motore predefinito sarà applicato solo dopo il riavvio dell\'app</string>
     <string name="preference_description_speech_timeout">Seleziona il tempo che deve trascorrere dopo aver smesso di parlare per inviare il testo trascritto</string>
     <string name="preference_description_prev_voice_duration">Seleziona la durata della registrazione precedente a quando si inizia a parlare che verrà inclusa nel riconoscimento vocale</string>
+    <string name="preference_description_beam_size">Imposta la beam size dell\'algoritmo di beam search, per migliorare la qualità della traduzione a discapito delle performance (solo per la traduzione testuale)</string>
     <string name="conversation_mode" >Modalità Conversazione</string>
     <string name="conversation_mode_running" >La modalità conversazione è in esecuzione...</string>
     <string name="walkietalkie_mode" >Modalità WalkieTalkie</string>

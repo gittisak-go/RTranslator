@@ -27,6 +27,42 @@ public class Utils {
         return Math.exp(input) / total;
     }
 
+    public static double logSumExp(float[] neuronValues) {
+        double total = 0;
+        for (float neuronValue : neuronValues) {
+            total += Math.exp(neuronValue);
+        }
+        return Math.log(total);
+    }
+
+    public static double logSumExpFast(float[] neuronValues){
+        double max = Double.NEGATIVE_INFINITY;
+        for (double v : neuronValues) {
+            if (v > max) {
+                max = v;
+            }
+        }
+        double threshold = 20.0; // Skip correction if other values are much lower
+        double sum = 0.0;
+        for (double v : neuronValues) {
+            double diff = v - max;
+            if (diff > -threshold) {
+                sum += Math.exp(diff);
+            }
+        }
+        return max + Math.log(sum);
+    }
+
+    public static double logSumExpFaster(float[] neuronValues){
+        double max = Double.NEGATIVE_INFINITY;
+        for (double v : neuronValues) {
+            if (v > max) {
+                max = v;
+            }
+        }
+        return max;
+    }
+
     public static int getIndexOfLargest(float[] array){
         //long time = System.currentTimeMillis();
         if (array == null || array.length == 0){

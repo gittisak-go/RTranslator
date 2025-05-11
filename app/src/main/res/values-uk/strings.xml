@@ -128,6 +128,7 @@
     <string name="preference_title_tts">Текст для вимови</string>
     <string name="preference_title_speech_timeout">Час завершення голосу</string>
     <string name="preference_title_prev_voice_duration">Тривалість попереднього голосу</string>
+    <string name="preference_title_beam_size">Beam Search (бета)</string>
 
     <string name="preference_description_mic_sensitivity">Виберіть рівень гучності, який вам потрібно для запуску та підтримки розпізнавання голосу</string>
     <string name="preference_description_languages_quality">Це дозволяє також підтримувати мови, які мають низьку якість перекладу або розпізнавання мовлення</string>
@@ -135,6 +136,7 @@
     <string name="preference_description_tts">Системні налаштування tts, будь-яка зміна вибраного двигуна буде застосована лише після перезапуску додатка</string>
     <string name="preference_description_speech_timeout">Виберіть час, після якого ви перестаєте говорити, щоб надіслати транскрибований текст</string>
     <string name="preference_description_prev_voice_duration">Виберіть тривалість запису, перед тим як ви почнете говорити, який буде включено до розпізнавання голосу</string>
+    <string name="preference_description_beam_size">Встановіть розмір променя алгоритму пошуку променя, щоб покращити якість перекладу за рахунок швидкості (лише для перекладу тексту)</string>
     <string name="conversation_mode" >Розмова</string>
     <string name="conversation_mode_running" >Режим Розмови працює...</string>
     <string name="walkietalkie_mode" >WalkieTalkie</string>

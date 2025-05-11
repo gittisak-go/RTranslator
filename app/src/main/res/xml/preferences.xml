@@ -80,6 +80,10 @@
         app:iconSpaceReserved="false"
         app:allowDividerAbove="true">
         <nie.translator.rtranslator.settings.SeekBarPreference
+            android:key="BeamSizeSetting"
+            android:layout="@layout/preference_seekbar"
+            app:iconSpaceReserved="false" />
+        <nie.translator.rtranslator.settings.SeekBarPreference
             android:key="SpeechTimeoutSetting"
             android:layout="@layout/preference_seekbar"
             app:iconSpaceReserved="false" />

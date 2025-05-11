@@ -127,6 +127,7 @@
     <string name="preference_title_tts">文字转语音</string>
     <string name="preference_title_speech_timeout">语音超时结束</string>
     <string name="preference_title_prev_voice_duration">语音预期持续时间</string>
+    <string name="preference_title_beam_size">定向搜索（测试版）</string>
 
     <string name="preference_description_mic_sensitivity">选择您需要的音量级别以启动和维持语音识别</string>
     <string name="preference_description_languages_quality">它还允许支持翻译或语音识别质量较低的语言</string>
@@ -134,6 +135,7 @@
     <string name="preference_description_tts">TTS 的系统设定，优先引擎的变更将仅在重新启动应用程序后生效</string>
     <string name="preference_description_speech_timeout">选择您停止说话后发送转录文字的时间</string>
     <string name="preference_description_prev_voice_duration">选择开始说话前的录音长度，将包括在语音识别中</string>
+    <string name="preference_description_beam_size">设置波束搜索算法的波束大小，以牺牲速度为代价来提高翻译质量（仅适用于文本翻译）</string>
     <string name="conversation_mode" >对话模式</string>
     <string name="conversation_mode_running" >对话模式正在运行...</string>
     <string name="walkietalkie_mode" >对讲机模式</string>

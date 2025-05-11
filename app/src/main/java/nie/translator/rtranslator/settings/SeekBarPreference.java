@@ -33,6 +33,7 @@ import java.util.Locale;
 
 import nie.translator.rtranslator.Global;
 import nie.translator.rtranslator.R;
+import nie.translator.rtranslator.voice_translation._text_translation.TranslationFragment;
 import nie.translator.rtranslator.voice_translation.neural_networks.voice.Recorder;
 
 
@@ -40,6 +41,7 @@ public class SeekBarPreference extends Preference {
     public static final int MIC_SENSIBILITY_MODE = 0;
     public static final int SPEECH_TIMEOUT_MODE = 1;
     public static final int PREV_VOICE_DURATION_MODE = 2;
+    public static final int BEAM_SIZE_MODE = 3;
     private int mode;
     private float defaultValue = 50;
     private Slider slider;
@@ -86,6 +88,9 @@ public class SeekBarPreference extends Preference {
                         break;
                     case PREV_VOICE_DURATION_MODE:
                         value.setText(String.format(Locale.US, "%.2f s", seekBarValue));
+                        break;
+                    case BEAM_SIZE_MODE:
+                        value.setText(String.format(Locale.US, "%d", (int) seekBarValue));
                         break;
                 }
             }
@@ -148,6 +153,14 @@ public class SeekBarPreference extends Preference {
                     title.setText(R.string.preference_title_prev_voice_duration);
                     summary.setText(R.string.preference_description_prev_voice_duration);
                     break;
+                case BEAM_SIZE_MODE:
+                    defaultValue = TranslationFragment.DEFAULT_BEAM_SIZE;
+                    slider.setStepSize(1);
+                    slider.setValueFrom(1);
+                    slider.setValueTo(TranslationFragment.MAX_BEAM_SIZE);
+                    title.setText(R.string.preference_title_beam_size);
+                    summary.setText(R.string.preference_description_beam_size);
+                    break;
             }
 
             setSeekBarValue();
@@ -173,6 +186,12 @@ public class SeekBarPreference extends Preference {
                 slider.setValue(value);
             }
             break;
+
+            case BEAM_SIZE_MODE: {
+                int value = global.getBeamSize();
+                slider.setValue(value);
+            }
+            break;
         }
     }
 
@@ -188,6 +207,9 @@ public class SeekBarPreference extends Preference {
                     break;
                 case PREV_VOICE_DURATION_MODE:
                     global.setPrevVoiceDuration((int) (Float.parseFloat(value.getText().toString().replace(" s", "")) * 1000));
+                    break;
+                case BEAM_SIZE_MODE:
+                    global.setBeamSize(Integer.parseInt(value.getText().toString()));
                     break;
             }
         }

@@ -44,6 +44,7 @@ import nie.translator.rtranslator.voice_translation._conversation_mode.communica
 import nie.translator.rtranslator.bluetooth.BluetoothCommunicator;
 import nie.translator.rtranslator.bluetooth.Peer;
 import nie.translator.rtranslator.voice_translation._conversation_mode.communication.recent_peer.RecentPeersDataManager;
+import nie.translator.rtranslator.voice_translation._text_translation.TranslationFragment;
 import nie.translator.rtranslator.voice_translation.neural_networks.NeuralNetworkApi;
 import nie.translator.rtranslator.voice_translation.neural_networks.translation.Translator;
 import nie.translator.rtranslator.voice_translation.neural_networks.voice.Recognizer;
@@ -68,6 +69,7 @@ public class Global extends Application implements DefaultLifecycleObserver {
     private int micSensitivity = -1;
     private int speechTimeout = -1;
     private int prevVoiceDuration = -1;
+    private int beamSize = -1;
     private int amplitudeThreshold = Recorder.DEFAULT_AMPLITUDE_THRESHOLD;
     private boolean isForeground = false;
     @Nullable
@@ -626,6 +628,22 @@ public class Global extends Application implements DefaultLifecycleObserver {
         } else {
             amplitudeThreshold = Math.round(Recorder.DEFAULT_AMPLITUDE_THRESHOLD + ((Recorder.MAX_AMPLITUDE_THRESHOLD - Recorder.DEFAULT_AMPLITUDE_THRESHOLD) * ((amplitudePercentage - 0.5F) * 2)));
         }
+    }
+
+    public int getBeamSize() {
+        if (beamSize == -1) {
+            final SharedPreferences sharedPreferences = this.getSharedPreferences("default", Context.MODE_PRIVATE);
+            beamSize = sharedPreferences.getInt("beamSize", TranslationFragment.DEFAULT_BEAM_SIZE);
+        }
+        return beamSize;
+    }
+
+    public void setBeamSize(int value) {
+        beamSize = value;
+        final SharedPreferences sharedPreferences = this.getSharedPreferences("default", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("beamSize", value);
+        editor.apply();
     }
 
     public String getName() {
