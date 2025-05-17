@@ -332,6 +332,7 @@ public class TranslationFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 outputText.setText("");
+                global.getTranslator().resetLastOutput();
             }
         });
     }

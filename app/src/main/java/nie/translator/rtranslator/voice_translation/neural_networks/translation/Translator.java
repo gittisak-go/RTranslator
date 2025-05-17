@@ -296,6 +296,10 @@ public class Translator extends NeuralNetworkApi {
         return lastOutputText;
     }
 
+    public void resetLastOutput(){
+        lastOutputText = null;
+    }
+
     public void resetLastInputOutput(){
         lastInputText = null;
         lastOutputText = null;
