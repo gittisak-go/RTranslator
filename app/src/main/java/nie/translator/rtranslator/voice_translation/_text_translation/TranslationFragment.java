@@ -89,6 +89,8 @@ public class TranslationFragment extends Fragment {
     private AppCompatImageButton backButton;
     private FloatingActionButton copyInputButton;
     private FloatingActionButton copyOutputButton;
+    private FloatingActionButton cancelInputButton;
+    private FloatingActionButton cancelOutputButton;
     private FloatingActionButton ttsInputButton;
     private FloatingActionButton ttsOutputButton;
     private ConstraintLayout outputContainer;
@@ -161,6 +163,8 @@ public class TranslationFragment extends Fragment {
         backButton = view.findViewById(R.id.backButton);
         copyInputButton = view.findViewById(R.id.copyButtonInput);
         copyOutputButton = view.findViewById(R.id.copyButtonOutput);
+        cancelInputButton = view.findViewById(R.id.cancelButtonInput);
+        cancelOutputButton = view.findViewById(R.id.cancelButtonOutput);
         ttsInputButton = view.findViewById(R.id.ttsButtonInput);
         ttsOutputButton = view.findViewById(R.id.ttsButtonOutput);
         outputContainer = view.findViewById(R.id.outputContainer);
@@ -318,6 +322,18 @@ public class TranslationFragment extends Fragment {
                 }
             }
         });
+        cancelInputButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputText.setText("");
+            }
+        });
+        cancelOutputButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                outputText.setText("");
+            }
+        });
     }
 
     public void onStart() {
@@ -351,7 +367,7 @@ public class TranslationFragment extends Fragment {
                         animationInput.cancel();
                     }
                     if(!s.toString().isEmpty()) {
-                        animationInput = animator.animateInputAppearance(activity, ttsInputButton, copyInputButton, new CustomAnimator.Listener() {
+                        animationInput = animator.animateInputAppearance(activity, ttsInputButton, copyInputButton, cancelInputButton, new CustomAnimator.Listener() {
                             @Override
                             public void onAnimationEnd() {
                                 super.onAnimationEnd();
@@ -359,7 +375,7 @@ public class TranslationFragment extends Fragment {
                             }
                         });
                     }else{
-                        animationInput = animator.animateInputDisappearance(activity, ttsInputButton, copyInputButton, new CustomAnimator.Listener() {
+                        animationInput = animator.animateInputDisappearance(activity, ttsInputButton, copyInputButton, cancelInputButton, new CustomAnimator.Listener() {
                             @Override
                             public void onAnimationEnd() {
                                 super.onAnimationEnd();

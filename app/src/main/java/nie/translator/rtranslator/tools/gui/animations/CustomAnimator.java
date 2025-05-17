@@ -637,13 +637,14 @@ public class CustomAnimator {
         return animatorSet;
     }
 
-    public Animator animateInputAppearance(final VoiceTranslationActivity activity, FloatingActionButton ttsInputButton, FloatingActionButton copyInputButton, Listener listener){
+    public Animator animateInputAppearance(final VoiceTranslationActivity activity, FloatingActionButton ttsInputButton, FloatingActionButton copyInputButton, FloatingActionButton cancelInputButton, Listener listener){
         int duration = activity.getResources().getInteger(R.integer.durationStandard);
 
         ttsInputButton.setVisibility(View.VISIBLE);
         copyInputButton.setVisibility(View.VISIBLE);
+        cancelInputButton.setVisibility(View.VISIBLE);
 
-        final Animator animationAppearance = createAnimatorAlpha(new View[]{ttsInputButton, copyInputButton}, ttsInputButton.getAlpha(), 1, duration);
+        final Animator animationAppearance = createAnimatorAlpha(new View[]{ttsInputButton, copyInputButton, cancelInputButton}, ttsInputButton.getAlpha(), 1, duration);
 
         animationAppearance.addListener(new Animator.AnimatorListener() {
             @Override
@@ -697,10 +698,10 @@ public class CustomAnimator {
         return animationAppearance;
     }
 
-    public Animator animateInputDisappearance(final VoiceTranslationActivity activity, FloatingActionButton ttsInputButton, FloatingActionButton copyInputButton, Listener listener){
+    public Animator animateInputDisappearance(final VoiceTranslationActivity activity, FloatingActionButton ttsInputButton, FloatingActionButton copyInputButton, FloatingActionButton cancelInputButton, Listener listener){
         int duration = activity.getResources().getInteger(R.integer.durationStandard);
 
-        final Animator animationAppearance = createAnimatorAlpha(new View[]{ttsInputButton, copyInputButton}, ttsInputButton.getAlpha(), 0, duration);
+        final Animator animationAppearance = createAnimatorAlpha(new View[]{ttsInputButton, copyInputButton, cancelInputButton}, ttsInputButton.getAlpha(), 0, duration);
 
         animationAppearance.addListener(new Animator.AnimatorListener() {
             @Override
@@ -713,6 +714,7 @@ public class CustomAnimator {
             public void onAnimationEnd(Animator animator) {
                 ttsInputButton.setVisibility(View.INVISIBLE);
                 copyInputButton.setVisibility(View.INVISIBLE);
+                cancelInputButton.setVisibility(View.INVISIBLE);
                 if (listener != null) {
                     listener.onAnimationEnd();
                 }

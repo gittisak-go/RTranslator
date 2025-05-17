@@ -1019,7 +1019,7 @@ public class Translator extends NeuralNetworkApi {
                     for (int i = 0; i < beamSize; i++) {
                         float maxLogit = outputValues[0][0][max[i]];
                         //old version of probability calculation (softmax)
-                        //beamsOutputsProbabilities[i] = Math.log(Utils.softmax(maxProbability, outputValues[0][0]));
+                        //beamsOutputsProbabilities[i] = Math.log(Utils.softmax(maxLogit, outputValues[0][0]));
                         //new version of probability calculation (logSumExp)
                         beamsOutputsProbabilities[i] = maxLogit - Utils.logSumExpFast(outputValues[0][0]);
                     }
