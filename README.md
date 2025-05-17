@@ -167,6 +167,13 @@ So, if you like the app and want to say thank you and support the project, you c
 In case you will donate, or just live a star, thank you :heart:
 <br /><br />
 
+<h3>Contributions</h3>
+
+If you want to contribute to this project, first of all, thank you 🚀
+
+If you don't know where to start, go check the [to-do list](https://github.com/niedev/RTranslator/blob/v2.00/TODO_LIST.md), and in any case, before starting, read the [contribution guidelines](https://github.com/niedev/RTranslator/blob/v2.00/CONTRIBUTING.md).
+<br /><br />
+
 <h3>Bugs and problems</h3>
 I remind you that the app is still in beta. The bugs found are the following:
 
