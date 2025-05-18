@@ -51,6 +51,7 @@ public class Message implements Parcelable, Cloneable {
     private Peer receiver;  //if is null the message will be sent to all connected peers
     private String header;  // mandatory length: 1
     private byte[] data;
+    private String textToTranslate;
 
     /**
      * @param context a context
@@ -69,6 +70,12 @@ public class Message implements Parcelable, Cloneable {
      * @param text the text of the message (it will be sent by sendMessage)
      */
     public Message(Context context, @NonNull String text) {
+        this.context = context;
+        this.data = text.getBytes(StandardCharsets.UTF_8);
+    }
+
+    public Message(String textToTranslate, Context context, @NonNull String text) {
+        this.textToTranslate = textToTranslate;
         this.context = context;
         this.data = text.getBytes(StandardCharsets.UTF_8);
     }
@@ -311,5 +318,13 @@ public class Message implements Parcelable, Cloneable {
         parcel.writeParcelable(sender, i);
         parcel.writeString(header);
         parcel.writeByteArray(this.data);
+    }
+
+    public String getTextToTranslate() {
+        return textToTranslate;
+    }
+
+    public void setTextToTranslate(String textToTranslate) {
+        this.textToTranslate = textToTranslate;
     }
 }
