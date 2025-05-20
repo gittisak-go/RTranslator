@@ -6,7 +6,7 @@ If you want to contribute to RTranslator but you don't know where to start, here
 | Mic manual mode setting to choose whether to start with automatic or manual mic mode in WalkieTalkie or Conversation mode (separate settings for the two modes). | Not started |
 | Button to stop and eventually repeat the TTS in the messages of WalkieTalkie and Conversation mode. | Not started |
 | A new section in the settings that shows the version of the app, plus link to the releases of the app that also show if there is a new version. | Not started |
-| A new option in the settings to show, in WalkieTalkie and Conversation modes, the original transcription of the message beyond the translation. | Not started |
+| A new option in the settings to show, in WalkieTalkie and Conversation modes, the original transcription of the message beyond the translation. | [Started](https://github.com/niedev/RTranslator/pull/125) |
 
 <br/><br/>
 Here is also a list of more difficult things to do if you want (I don't expect to do one of these all by yourself, even pull requests that lay down the foundations or a one that do a small contribution about these features are higly appreciated):
