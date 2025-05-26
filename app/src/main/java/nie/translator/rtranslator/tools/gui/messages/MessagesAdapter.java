@@ -16,6 +16,8 @@
 
 package nie.translator.rtranslator.tools.gui.messages;
 
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import nie.translator.rtranslator.Global;
 import nie.translator.rtranslator.R;
 
 /** Is used to connect to the RecycleView, which functions as a ListView, a list of strings, which will be inserted in the ViewHolder layout and this will be inserted in the list**/
@@ -40,7 +43,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private ArrayList<GuiMessage> mResults = new ArrayList<>();
     private Callback callback;
 
-    public MessagesAdapter(ArrayList<GuiMessage> messages, @NonNull Callback callback) {
+    private static boolean showOriginalTranscriptionMsg;
+
+    public MessagesAdapter(ArrayList<GuiMessage> messages, Application application, @NonNull Callback callback) {
         this.callback = callback;
         if (messages != null) {
             if (messages.size() > 0) {
@@ -49,6 +54,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             mResults.addAll(messages);
             notifyItemRangeInserted(0, messages.size() - 1);
         }
+        showOriginalTranscriptionMsg = application.getSharedPreferences("default", Context.MODE_PRIVATE).getBoolean("ShowOriginalTranscriptionMsgPreference", false);
     }
 
     @NonNull
@@ -165,6 +171,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ReceivedHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.component_message_received, parent, false));
             originalTextToBeTranslated = itemView.findViewById(R.id.original_text_to_be_translated);
+            if (!showOriginalTranscriptionMsg) {
+                originalTextToBeTranslated.setVisibility(View.GONE);
+            }
             text = itemView.findViewById(R.id.text_content);
 
             containerSender = itemView.findViewById(R.id.sender_container);
@@ -189,6 +198,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         SendHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.component_message_send, parent, false));
             originalTextToBeTranslated = itemView.findViewById(R.id.original_text_to_be_translated);
+            if (!showOriginalTranscriptionMsg) {
+                originalTextToBeTranslated.setVisibility(View.GONE);
+            }
             text = itemView.findViewById(R.id.text);
             card = itemView.findViewById(R.id.card);
         }

@@ -132,6 +132,8 @@
 
     <string name="preference_description_mic_sensitivity">Виберіть рівень гучності, який вам потрібно для запуску та підтримки розпізнавання голосу</string>
     <string name="preference_description_languages_quality">Це дозволяє також підтримувати мови, які мають низьку якість перекладу або розпізнавання мовлення</string>
+    <string name="preference_title_show_original_transcription">Показати оригінальні транскрипції крім перекладу</string>
+    <string name="preference_description_show_original_transcription_msg_preference">Це дозволяє показувати оригінальну транскрипцію крім перекладу повідомлення.</string>
     <string name="preference_description_support_tts_quality">Це дозволяє також підтримувати мови, які мають низькое якість синтезу мовлення</string>
     <string name="preference_description_tts">Системні налаштування tts, будь-яка зміна вибраного двигуна буде застосована лише після перезапуску додатка</string>
     <string name="preference_description_speech_timeout">Виберіть час, після якого ви перестаєте говорити, щоб надіслати транскрибований текст</string>
