@@ -16,6 +16,8 @@
 
 package nie.translator.rtranslator.tools.gui.messages;
 
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import nie.translator.rtranslator.Global;
 import nie.translator.rtranslator.R;
 
 /** Is used to connect to the RecycleView, which functions as a ListView, a list of strings, which will be inserted in the ViewHolder layout and this will be inserted in the list**/
@@ -40,7 +43,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private ArrayList<GuiMessage> mResults = new ArrayList<>();
     private Callback callback;
 
-    public MessagesAdapter(ArrayList<GuiMessage> messages, @NonNull Callback callback) {
+    private static boolean showOriginalTranscriptionMsg;
+
+    public MessagesAdapter(ArrayList<GuiMessage> messages, Application application, @NonNull Callback callback) {
         this.callback = callback;
         if (messages != null) {
             if (messages.size() > 0) {
@@ -49,6 +54,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             mResults.addAll(messages);
             notifyItemRangeInserted(0, messages.size() - 1);
         }
+        showOriginalTranscriptionMsg = application.getSharedPreferences("default", Context.MODE_PRIVATE).getBoolean("ShowOriginalTranscriptionMsgPreference", false);
     }
 
     @NonNull
@@ -73,7 +79,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 ((ReceivedHolder) holder).sender.setText(message.getMessage().getSender().getName());
                 Log.d("recyclerview", "RecyclerView bind sender");
             }
-            ((MessageHolder) holder).setText(message.getMessage().getText());
+            ((MessageHolder) holder).setText(message.getMessage().getTextToTranslate(), message.getMessage().getText());
             Log.d("recyclerview", "RecyclerView bind text");
             //holder.itemView.requestLayout();
         }
@@ -156,6 +162,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     /** The layout for each item in the RecicleView list*/
     private static class ReceivedHolder extends RecyclerView.ViewHolder implements MessageHolder {
+        TextView originalTextToBeTranslated;
         TextView text;
         LinearLayout containerSender;
         TextView textSender;
@@ -163,6 +170,10 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         ReceivedHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.component_message_received, parent, false));
+            originalTextToBeTranslated = itemView.findViewById(R.id.original_text_to_be_translated);
+            if (!showOriginalTranscriptionMsg) {
+                originalTextToBeTranslated.setVisibility(View.GONE);
+            }
             text = itemView.findViewById(R.id.text_content);
 
             containerSender = itemView.findViewById(R.id.sender_container);
@@ -171,31 +182,38 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
 
         @Override
-        public void setText(String text) {
+        public void setText(String originalTextToBeTranslated, String text) {
             this.textSender.setText(text);
+            this.originalTextToBeTranslated.setText(originalTextToBeTranslated);
             this.text.setText(text);
         }
     }
 
     /** The layout for each item in the RecicleView list*/
     private static class SendHolder extends RecyclerView.ViewHolder implements MessageHolder {
+        TextView originalTextToBeTranslated;
         TextView text;
         CardView card;
 
         SendHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.component_message_send, parent, false));
+            originalTextToBeTranslated = itemView.findViewById(R.id.original_text_to_be_translated);
+            if (!showOriginalTranscriptionMsg) {
+                originalTextToBeTranslated.setVisibility(View.GONE);
+            }
             text = itemView.findViewById(R.id.text);
             card = itemView.findViewById(R.id.card);
         }
 
         @Override
-        public void setText(String text) {
+        public void setText(String originalTextToBeTranslated, String text) {
+            this.originalTextToBeTranslated.setText(originalTextToBeTranslated);
             this.text.setText(text);
         }
     }
 
     interface MessageHolder {
-        void setText(String text);
+        void setText(String originalTextToBeTranslated, String text);
     }
 
     public interface Callback {

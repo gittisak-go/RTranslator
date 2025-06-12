@@ -229,7 +229,7 @@ public class TranslationFragment extends Fragment {
         });
         translateListener = new Translator.TranslateListener() {
             @Override
-            public void onTranslatedText(String text, long resultID, boolean isFinal, CustomLocale languageOfText) {
+            public void onTranslatedText(String textToTranslate, String text, long resultID, boolean isFinal, CustomLocale languageOfText) {
                 outputText.setText(text);
                 if(isFinal){
                     activateTranslationButton();

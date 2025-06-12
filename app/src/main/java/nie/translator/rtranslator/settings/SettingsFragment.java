@@ -60,6 +60,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private SettingsActivity activity;
     private UserNamePreference userNamePreference;
     private SupportLanguagesQuality supportLanguagesQualityPreference;
+
+    private ShowOriginalTranscriptionMsgPreference showOriginalTranscriptionMsgPreference;
     private SupportTtsQualityPreference supportTtsQualityPreference;
     private LanguagePreference languagePreference;
 
@@ -160,6 +162,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         // language support option with low quality initialization
         supportLanguagesQualityPreference = (SupportLanguagesQuality) findPreference("languagesNNQualityLow");
         supportLanguagesQualityPreference.setFragment(this);
+
+        showOriginalTranscriptionMsgPreference = (ShowOriginalTranscriptionMsgPreference) findPreference("ShowOriginalTranscriptionMsgPreference");
+        showOriginalTranscriptionMsgPreference.setFragment(this);
+
 
         // language support option with low quality tts initialization
         supportTtsQualityPreference = (SupportTtsQualityPreference) findPreference("languagesQualityLow");

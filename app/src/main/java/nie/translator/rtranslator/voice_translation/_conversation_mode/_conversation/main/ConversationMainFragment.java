@@ -286,7 +286,7 @@ public class ConversationMainFragment extends VoiceTranslationFragment {
             public void onSuccess(ArrayList<GuiMessage> messages, boolean isMicMute, boolean isAudioMute, boolean isTTSError, final boolean isEditTextOpen, boolean isBluetoothHeadsetConnected, boolean isMicAutomatic, boolean isMicActivated, int listeningMic) {
                 container.setVisibility(View.VISIBLE);
                 // initialization with service values
-                mAdapter = new MessagesAdapter(messages, new MessagesAdapter.Callback() {
+                mAdapter = new MessagesAdapter(messages, global, new MessagesAdapter.Callback() {
                     @Override
                     public void onFirstItemAdded() {
                         description.setVisibility(View.GONE);

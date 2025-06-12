@@ -53,7 +53,7 @@ public class ImageActivity extends Activity {
         messages.add(new GuiMessage(new Message(this, new Peer(null, "Carlos11", true), "m", "Je vais bien"), false, true));
         messages.add(new GuiMessage(new Message(this, "m", "Moi aussi"), true, true));*/
 
-        mAdapter = new MessagesAdapter(messages, new MessagesAdapter.Callback() {
+        mAdapter = new MessagesAdapter(messages, this.getApplication(), new MessagesAdapter.Callback() {
             @Override
             public void onFirstItemAdded() {
                 mRecyclerView.setVisibility(View.VISIBLE);

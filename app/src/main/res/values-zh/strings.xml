@@ -131,6 +131,8 @@
 
     <string name="preference_description_mic_sensitivity">选择您需要的音量级别以启动和维持语音识别</string>
     <string name="preference_description_languages_quality">它还允许支持翻译或语音识别质量较低的语言</string>
+    <string name="preference_title_show_original_transcription">显示翻译之外的原始转录内容</string>
+    <string name="preference_description_show_original_transcription_msg_preference">它允许显示消息翻译之外的原始转录内容。</string>
     <string name="preference_description_support_tts_quality">此选项允许支持语音合成器质量较低的语言</string>
     <string name="preference_description_tts">TTS 的系统设定，优先引擎的变更将仅在重新启动应用程序后生效</string>
     <string name="preference_description_speech_timeout">选择您停止说话后发送转录文字的时间</string>
