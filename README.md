@@ -167,6 +167,16 @@ So, if you like the app and want to say thank you and support the project, you c
 In case you will donate, or just live a star, thank you :heart:
 <br /><br />
 
+<h3>Connected external projects</h3>
+
+Take a look at these awesome projects that use RTranslator code:
+
+[**WhisperJET**](https://github.com/eix128/WhisperJET)
+
+[**WhisperIMEplus**](https://github.com/woheller69/whisperIMEplus)
+<br /><br />
+
+
 <h3>Contributions</h3>
 
 If you want to contribute to this project, first of all, thank you 🚀
