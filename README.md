@@ -171,9 +171,9 @@ In case you will donate, or just live a star, thank you :heart:
 
 Take a look at these awesome projects that use RTranslator code:
 
-[**WhisperJET**](https://github.com/eix128/WhisperJET)
-
 [**WhisperIMEplus**](https://github.com/woheller69/whisperIMEplus)
+
+[**WhisperJET**](https://github.com/eix128/WhisperJET)
 <br /><br />
 
 
